@@ -165,15 +165,17 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
-    <Compile Include="DAL\DatabaseContext.cs.cs" />
+    <Compile Include="DAL\DatabaseContext.cs" />
     <Compile Include="DTO\Request\PaymentRequest.cs" />
     <Compile Include="DTO\Response\PaymentResponce.cs" />
+    <Compile Include="DTO\Result\GetPaymentResult.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Help\PaymentHelp.cs" />
     <Compile Include="Models\ICSVoidSuccessLog.cs" />
     <Compile Include="Models\ICSUpdatePaymentLog.cs" />
+    <Compile Include="Models\PaymentType.cs" />
     <Compile Include="Models\Receipt.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -243,7 +245,6 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="Scripts\bootstrap.min.js.map" />
   </ItemGroup>

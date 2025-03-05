@@ -5,6 +5,7 @@ using GetPayment.Models;
 using System.Collections.Generic;
 using GetPayment.DTO.Request;
 using GetPayment.DTO.Response;
+using GetPayment.DTO.Result;
 using System.Threading.Tasks;
 using System.Data.Entity;
 
@@ -17,14 +18,47 @@ namespace GetPayment.Help
             return "Hello, ASP.NET Web API!";
         }
 
-        internal static List<ICSVoidSuccessLog> GetPaymentSuccessLogs(DB_BPM_CENTER_ADT_DB dbadt)
+        internal static async Task<List<PaymentType>> GetPaymentType(DB_BPM_CENTER_APP_DB dbapp)
         {
-            return dbadt.ICSVoidSuccessLogs.Take(2).ToList();
+            try
+            {
+                return await dbapp.PaymentTypes.ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("เกิดข้อผิดพลาด ", ex);
+            }
+        }
+
+        internal static async Task<ICSVoidSuccessLog> GetPaymentSuccessLogs(DB_BPM_CENTER_ADT_DB dbadt)
+        {
+            try 
+            {
+                var result = await dbadt.ICSVoidSuccessLogs
+                    .OrderByDescending(x => x.CreatedDate)
+                    .FirstOrDefaultAsync();
+                    
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("เกิดข้อผิดพลาด ", ex);
+            }
         }
 
         internal static async Task<List<ICSUpdatePaymentLog>> GetPaymentLogs(DB_BPM_CENTER_ADT_DB dbadt)
         {
-            return await dbadt.ICSUpdatePaymentLogs.Take(2).ToListAsync();
+            try 
+            {
+                return await dbadt.ICSUpdatePaymentLogs
+                    .OrderByDescending(x => x.CreatedDate)
+                    .Take(2)
+                    .ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("เกิดข้อผิดพลาด ", ex);
+            }
         }
 
         internal static async Task<PaymentResponce> GetPaymentByRef(DB_BPM_CENTER_ADT_DB dbadt, PaymentRequest request)
@@ -88,6 +122,18 @@ namespace GetPayment.Help
                 res.UpdateStatus.Message = "Error : " + ex.Message;
 
                 return res;
+            }
+        }
+
+        internal static async Task<GetPaymentResult> GetPaymentSp(DB_BPM_CENTER_ADT_DB dbadt, PaymentRequest request)
+        {
+            try
+            {
+                return await dbadt.GetPaymentFromStoredProc(request);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("เกิดข้อผิดพลาด ", ex);
             }
         }
     }
