@@ -85,12 +85,30 @@ namespace GetPayment.Controllers
         }
 
         [HttpPost]
-        [Route("api/get-payment-sp")]
-        public async Task<IHttpActionResult> GetPaymentSp(PaymentRequest request)
+        [Route("api/post-payment-sp")]
+        public async Task<IHttpActionResult> PostPaymentSp(PaymentRequest request)
         {
             try
             {
-                var result = await PaymentHelp.GetPaymentSp(_dbadt, request);
+                var result = await PaymentHelp.PostPaymentSp(_dbadt, request);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(ex);
+            }
+        }
+
+        [HttpGet]
+        [Route("api/get-payment-sp")]
+        public async Task<IHttpActionResult> GetPaymentSp(string ref1, string ref2)
+        {
+            try
+            {
+                var request = new PaymentRequest();
+                request.Ref1 = ref1;
+                request.Ref2 = ref2;
+                var result = await PaymentHelp.PostPaymentSp(_dbadt, request);
                 return Ok(result);
             }
             catch (Exception ex)

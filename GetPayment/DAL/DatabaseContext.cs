@@ -4,7 +4,6 @@ using GetPayment.DTO.Result;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using GetPayment.DTO.Request;
-using GetPayment.DTO.Request;
 
 namespace GetPayment.DAL
 {
@@ -51,7 +50,7 @@ namespace GetPayment.DAL
         public async Task<GetPaymentResult> GetPaymentFromStoredProc(PaymentRequest request)
         {
              var result = await Database.SqlQuery<GetPaymentResult>(
-                "EXEC [dbo].[ta_GetPayment] @Ref1, @Ref2",
+                "EXEC [dbo].[ics_sel_GetPayment] @Ref1, @Ref2",
                 new System.Data.SqlClient.SqlParameter("@Ref1", request.Ref1),
                 new System.Data.SqlClient.SqlParameter("@Ref2", request.Ref2)
             ).FirstOrDefaultAsync();

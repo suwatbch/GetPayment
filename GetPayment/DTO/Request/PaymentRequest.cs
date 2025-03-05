@@ -18,7 +18,7 @@ namespace GetPayment.DTO.Request
                 if (value.Length <= 12)
                     ref1 = value;
                 else
-                    throw new ArgumentException("Ref1 must be 12 characters or less.");
+                    throw new ArgumentException("ความยาวของ Ref1 ต้องไม่เกิน 12 ");
             }
         }
 
@@ -30,7 +30,7 @@ namespace GetPayment.DTO.Request
                 if (value.Length <= 12)
                     ref2 = value;
                 else
-                    throw new ArgumentException("Ref2 must be 12 characters or less.");
+                    throw new ArgumentException("ความยาวของ Ref2 ต้องไม่เกิน 12 ");
             }
         }
     }
