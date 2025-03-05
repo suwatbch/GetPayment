@@ -167,7 +167,6 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="Controllers\AuthenticationController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -181,8 +180,6 @@
     <Compile Include="Help\PaymentHelp.cs" />
     <Compile Include="Models\ICSVoidSuccessLog.cs" />
     <Compile Include="Models\ICSUpdatePaymentLog.cs" />
-    <Compile Include="Models\PaymentType.cs" />
-    <Compile Include="Models\Receipt.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

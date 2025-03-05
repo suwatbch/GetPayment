@@ -12,18 +12,8 @@ namespace GetPayment.DAL
     {
         public DB_BPM_CENTER_APP_DB() : base("Connection_BPM_CENTER_APP_DB") { }
 
-        public DbSet<PaymentType> PaymentTypes { get; set; }
-
-        public DbSet<Receipt> Receipts { get; set; }
-
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<PaymentType>().ToTable("PaymentType", "mt");
-            modelBuilder.Entity<PaymentType>().HasKey(x => x.PtId);
-
-            modelBuilder.Entity<Receipt>().ToTable("Receipt", "ta");
-            modelBuilder.Entity<Receipt>().HasKey(x => x.ReceiptId);
-
             base.OnModelCreating(modelBuilder);
         }
     }
