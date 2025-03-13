@@ -13,7 +13,7 @@ namespace GetPayment.DTO.Response
         public string DebtId { get; set; }
         public string ReceiptId { get; set; }
         public UpdateStatus UpdateStatus { get; set; }
-        public DateTime? CreatedDate { get; set; }
+        public DateTime? PayDate { get; set; }
     }
 
     public class UpdateStatus
