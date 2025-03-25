@@ -46,7 +46,7 @@ namespace GetPayment.Help
                     res.InvoiceNo = null;
                     res.DebtId = null;
                     res.ReceiptId = null;
-                    res.PayDate = DateTime.Now;
+                    res.PayDate = null;
                     res.UpdateStatus.Response = "คำร้องยังไม่ได้ชำระเงิน";
                     res.UpdateStatus.Success = false;
                     res.UpdateStatus.Message = "ไม่พบข้อมูลการชำระเงิน";
@@ -61,7 +61,7 @@ namespace GetPayment.Help
                 res.InvoiceNo = null;
                 res.DebtId = null;
                 res.ReceiptId = null;
-                res.PayDate = DateTime.Now;
+                res.PayDate = null;
                 res.UpdateStatus.Response = null;
                 res.UpdateStatus.Success = false;
                 res.UpdateStatus.Message = "Error : " + ex.Message;
