@@ -19,7 +19,7 @@ namespace GetPayment.DTO.Response
     public class UpdateStatus
     {
         public string Response { get; set; } = "คำร้องชำระเงินแล้ว";
-        public bool Success { get; set; } = true;
+        public string Status { get; set; }
         public string Message { get; set; } = "OK REQUEST";
     }
 }
